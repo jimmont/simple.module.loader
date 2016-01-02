@@ -56,9 +56,10 @@ function ajax(config){
 		};
 	};
 	req.async = true;
-	req.src = config.url;
 	req.addEventListener('load', complete);
 	req.addEventListener('error', complete);
+
+	req.src = config.url;
 	document.body.appendChild(req);
 
 };
