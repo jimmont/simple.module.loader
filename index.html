@@ -56,6 +56,8 @@ function ajax(config){
 		};
 	};
 	req.async = true;
+	if(config.onload) req.addEventListener('load', config.onload);
+	if(config.onerror) req.addEventListener('error', config.onerror);
 	req.addEventListener('load', complete);
 	req.addEventListener('error', complete);
 

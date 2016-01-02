@@ -4,7 +4,12 @@ https://github.com/jimmont/simple.module.loader
 */
 	request: function(item){
 	// NOTE redefine as-desired to fit project security/requirements
-		return http({url: item, method: 'script'});
+		return http({
+			url: item, method: 'script'
+			// because the promise is async it misses exports, load/error events are more reliable/synchronous
+			,onload: function thenSetup(res){ return module.setup(item); }
+			,onerror: function thenTeardown(res){ return module.teardown(res, item); }
+		});
 	}
 	,list: {}
 	,_exports: []
@@ -23,6 +28,8 @@ https://github.com/jimmont/simple.module.loader
 	,teardown: function(err, item){
 		// TODO does this address all the scenarios adquately (eg both js errors and http errors)?
 		var exports = this.purge();
+		// TODO is this correct?
+		Promise.reject(this.list[item]);
 		this.list[item] = false;
 		return err;
 	}
@@ -45,15 +52,15 @@ https://github.com/jimmont/simple.module.loader
 					return it;
 			})).then(function allSetup(res){
 				Object.keys(item).forEach(function(key, i){ item[key] = res[i]; });
-				return item;
+				return Promise.resolve(item);
 			}, function allFail(res){
 				console.warn('--TODO-- allFail>',res, item);
 				return res;
 			});
 		}else{
 			return module.register(item).then(
-				function thenSetup(res){ return module.setup(item); }
-				,function thenTeardown(res){ return module.teardown(res, item); }
+				function thenOk(res){ return module.list[item]; }
+				,function thenFail(res){ return module.list[item]; }
 			);
 		};
 	}
