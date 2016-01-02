@@ -1,44 +1,7 @@
 var module = {
 /* simple module loading
-example:
-index.html
-module.require('./feature.js').then(function(fn){ console.log('<done>'); })
-
-feature.js
-	(function(){
-		var talk, and, communicate = function(){
-			talk( and.fun(arguments), new and.Speaker('seriously') );
-		};
-		module.require({
-			and: './parts.js'
-			,talk: './talk.js'
-		}).then(function(res){
-			talk = res.talk;
-			and = res.and;
-			communicate('stuff', 'things');
-
-			return communicate;
-		});
-	})();
-
-./talk.js
-module.exports = function(msg, speaker){
-	console.log(msg, speaker);
-};
-
-./parts.js
-module.exports = {
-	a: 'aye'
-	,fun: function(stuff){
-		return this.a + ' ' + Array.prototype.slice.apply(stuff).join(' and ');
-	}
-	,Speaker: function(style){
-		this.voice = '...';
-		this.style = style;
-	}
-};
-
- */
+https://github.com/jimmont/simple.module.loader
+*/
 	request: function(item){
 	// NOTE redefine as-desired to fit project security/requirements
 		return http({url: item, method: 'script'});
