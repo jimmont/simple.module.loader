@@ -1,7 +1,7 @@
 # simple.module.loader
 simple module loading
 
-<p><a href="http://jimmont.github.io/simple.module.loader/">see the demo</a></p>
+<p><a href="http://jimmont.github.io/simple.module.loader/">see the demo</a> <a href="https://github.com/jimmont/simple.module.loader/tree/gh-pages">or view the demo branch</a></p>
 
 <p>use it like this:</p>
 <pre>index.html:
