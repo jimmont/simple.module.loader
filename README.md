@@ -1,7 +1,9 @@
 # simple.module.loader
 simple module loading
 
-<p><a href="http://jimmont.github.io/simple.module.loader/">see the demo</a> <a href="https://github.com/jimmont/simple.module.loader/tree/gh-pages">or view the demo branch</a></p>
+<p><a href="http://jimmont.github.io/simple.module.loader/"><b>see the demo</b></a> <a href="https://github.com/jimmont/simple.module.loader/tree/gh-pages">or view the demo branch</a></p>
+
+<p>targets modern browsers: chrome latest, mobile safari latest/recent, android latest?, crosswalk</p>
 
 <p>use it like this:</p>
 <pre>index.html:
@@ -22,5 +24,3 @@ module.exports = module.require({
 	return res;
 });
 </pre>
-
-<p>targets modern browsers chrome latest, mobile safari latest/recent, android latest?, crosswalk</p>
