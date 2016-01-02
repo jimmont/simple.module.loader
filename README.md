@@ -1,6 +1,4 @@
-# simple.module.loader
-simple module loading
-
+<h1>simple.module.loader</h1>
 <p>
 Async, simple, flexible module loading that targets modern mobile browsers (Chrome/mobile Safari/Android latest?/crosswalk).
 <br><a href="http://jimmont.github.io/simple.module.loader/"><b>See the demo</b></a> <a href="https://github.com/jimmont/simple.module.loader/tree/gh-pages">or view the demo branch</a>.
